@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link id="Link"
+        href="https://static.vecteezy.com/system/resources/thumbnails/006/467/455/small_2x/drum-isometric-icon-design-event-celebration-accessory-vector.jpg"
+        rel="icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #2A4D91;
+            margin: 0px;
+            padding: 0 0px;
+            font-family: 'Oswald', sans-serif;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+
+        .page-border {
+            margin: 20px;
+            border: 1px solid #fff;
+            height: calc(100vh - 40px);
+        }
+
+        .tax-calculator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            height: 100%;
+        }
+
+        .tax-title,
+        .tax-result {
+            flex: 1;
+        }
+
+        .tax-title h2 {
+            color: #fff;
+            padding: 20px 30px;
+            background: #FF7000;
+            font-size: 55px;
+            letter-spacing: 1px;
+        }
+
+        .tax-result {
+            padding: 30px 50px;
+            background: #fff;
+            border-radius: 20px;
+            margin: 20px 50px 50px;
+        }
+
+        .tax-result label {
+            display: flex;
+            font-size: 18px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .tax-result input {
+            padding: 11px 10px;
+            font-size: 14px;
+            background: #fff;
+            border: 1px solid #DADDE1;
+            margin-bottom: 20px;
+            width: 94%;
+            border-radius: 6px;
+        }
+
+        .check-btn {
+            padding: 13px 20px;
+            text-align: center;
+            background: #1BB596;
+            border-radius: 10px;
+            color: #fff;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+            font-size: 20px;
+        }
+
+        .check-btn:hover {
+            background: #FF7000;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+
+        .alert {
+            color: #FF0000;
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: none;
+        }
+
+        .item-report {
+            padding: 10px 20px;
+            background: #F6F6F6;
+            margin-top: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .item-report p {
+            border-bottom: 1px solid #E5E5E5;
+            margin: 0px 0 4px;
+            padding: 4px 0 5px;
+        }
+
+        .item-report .itm-right {
+            float: right;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .item-report h3 {
+            color: #FF7000 !important;
+        }
+
+        @media screen and (max-width: 1100px) {
+            .tax-result {
+                padding: 30px 50px;
+                margin: 20px 20px 20px;
+            }
+
+            .tax-calculator {
+                gap: 20px;
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            .tax-title h2 {
+                padding: 20px 30px;
+                font-size: 42px;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .tax-calculator {
+                flex-direction: column;
+                gap: 0px;
+                align-items: unset;
+                height: unset;
+            }
+
+            .tax-title h2 {
+                padding: 10px 0px;
+                font-size: 35px;
+                width: 100% !important;
+                text-align: center;
+                margin-top: 0px;
+            }
+
+            .tax-result {
+                padding: 20px 30px;
+                margin: 0px 20px 20px;
+            }
+
+            .tax-result label {
+                font-size: 16px;
+            }
+
+            .tax-result input {
+                padding: 9px 10px;
+                margin-bottom: 17px;
+            }
+
+            .check-btn {
+                padding: 10px 20px;
+                font-size: 18px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .tax-title h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .tax-title h2 {
+                font-size: 25px;
+            }
+
+            .item-report p {
+                font-size: 14px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="page-border">
+        <div class="tax-calculator">
+            <div class="tax-title">
+                <h2>Item Vat Calculator</h2>
+            </div>
+            <div class="tax-result">
+                <span class="alert">Enter Item Price, Number of Item and Tax Value *</span>
+                <label>Item Price</label>
+                <input type="number" class="item" placeholder="Enter Item Price">
+                <label>No. of Item</label>
+                <input type="number" class="item-number" placeholder="Enter No. of Item">
+                <label>Total Vat</label>
+                <input type="number" class="tax" placeholder="Enter Vat">
+                <button class="check-btn">Check Total Price</button>
+                <div class="item-report">
+                    <p>Item Price (<span class="itm-prc"></span> x <span class="total-item"></span>) <span
+                            class="itempriceshow itm-right">0</span></p>
+                    <p>Tax (<span class="tax-percent"></span>%) <span class="taxshow itm-right">0</span></p>
+                    <h3>Total <span class="finaltotalcost itm-right">0</span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        const item = document.querySelector('.item');
+        const itemNumber = document.querySelector('.item-number');
+        const tax = document.querySelector('.tax');
+        //const checkBtn = document.querySelector('.check-btn');
+        const alertBox = document.querySelector('.alert');
+        const itemReport = document.querySelector('.item-report');
+        const itemPriceShow = document.querySelector('.itempriceshow');
+        const taxShow = document.querySelector('.taxshow');
+        const finalTotalCost = document.querySelector('.finaltotalcost');
+        const taxPercent = document.querySelector('.tax-percent');
+        const itmPrice = document.querySelector('.itm-prc');
+        const totalItem = document.querySelector('.total-item');
+
+        // Alert Message
+        const alertMessage = function () {
+            alertBox.style.display = 'block';
+            const stopTimeOut = setTimeout(() => {
+                alertBox.style.display = 'none';
+            }, "2000");
+            function clearMessage() {
+                clearTimeout(stopTimeOut);
+            }
+        }
+        $('.check-btn').click(function () {
+            const itemCost = item.value;
+            const itemCount = itemNumber.value;
+            const taxValue = tax.value;
+            if (itemCost && itemCount && taxValue) {
+                const totalItemPrice = itemCost * itemCount;
+                const totalTax = totalItemPrice * taxValue / 100;
+                const priceAfterTax = totalItemPrice + totalTax;
+                item.value = itemNumber.value = tax.value = '';
+                itemReport.style.display = 'block';
+                itemPriceShow.textContent = totalItemPrice;
+                totalItem.textContent = itemCount;
+                itmPrice.textContent = itemCost;
+                taxPercent.textContent = taxValue;
+                taxShow.textContent = totalTax.toFixed(2);
+                finalTotalCost.textContent = priceAfterTax.toFixed(2);
+            } else {
+                alertMessage();
+            }
+        });
+        // Tax Calculator
+        // checkBtn.addEventListener('click', function () {
+        //     const itemCost = item.value;
+        //     const itemCount = itemNumber.value;
+        //     const taxValue = tax.value;
+        //     if (itemCost && itemCount && taxValue) {
+        //         const totalItemPrice = itemCost * itemCount;
+        //         const totalTax = totalItemPrice * taxValue / 100;
+        //         const priceAfterTax = totalItemPrice + totalTax;
+        //         item.value = itemNumber.value = tax.value = '';
+        //         itemReport.style.display = 'block';
+        //         itemPriceShow.textContent = totalItemPrice;
+        //         totalItem.textContent = itemCount;
+        //         taxShow.textContent = totalTax.toFixed(2);
+        //         itmPrice.textContent = itemCost;
+        //         taxPercent.textContent = taxValue;
+        //         finalTotalCost.textContent = priceAfterTax.toFixed(2);
+        //     } else {
+        //         alertMessage();
+        //     }
+        // })
+    </script>
+</body>
+
+</html>
